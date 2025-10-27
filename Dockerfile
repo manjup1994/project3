@@ -1,4 +1,5 @@
-﻿FROM node:18-alpine
+# force rebuild
+FROM node:18-alpine
 WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install --omit=dev
