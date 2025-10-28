@@ -1,26 +1,14 @@
-# force rebuild
+# Use Node.js 18 lightweight image
 FROM node:18-alpine
-
+# Set working directory
 WORKDIR /usr/src/app
-<<<<<<< Updated upstream
-
-# Copy backend package files
+# Copy package files from backend folder
 COPY backend/package*.json ./
-
-# Install only production dependencies
+# Install dependencies (production only)
 RUN npm install --omit=dev
-
 # Copy backend source code
-COPY backend/. .
-
-<<<<<<< HEAD
-=======
-# 4) Expose and start
-=======
-COPY package*.json ./
-RUN npm install --omit=dev
-COPY . .
->>>>>>> Stashed changes
->>>>>>> b291858 (Resolve Dockerfile conflict and update build configuration)
+COPY backend/ .
+# Expose port
 EXPOSE 3000
+# Start the server
 CMD ["node", "server.js"]
