@@ -1,6 +1,6 @@
 // frontend/src/api.js
 const base =  '/api'
- // Vite dev server will proxy /api -> https://project8-hkio.onrender.com
+ // Vite dev server will proxy /api -> fetch("https://project8-hkio.onrender.com/users")
 
 export async function listUsers() {
   const res = await fetch(`${base}/users`)
