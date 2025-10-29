@@ -9,7 +9,7 @@ services:
     depends_on:
       - backend
     ports:
-      - "3000:80"   # host:container -> open http://localhost:3000 for the app
+      - "3000:80"   # host:container -> open https://project8-hkio.onrender.com for the app
     networks:
       - projectnet
 
