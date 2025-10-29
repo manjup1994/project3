@@ -1,42 +1,92 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+/* src/App.css */
+:root{--bg:#f6f8fb;--card:#fff;--accent:#0b7cff;--muted:#6b7280}
+*{box-sizing:border-box}
+body,html,#root{height:100%;margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:#0f1724}
+.site-root .hero{display:flex;justify-content:space-between;align-items:center;padding:36px 48px;background:linear-gradient(90deg,#fff,#f3f7ff);border-bottom:1px solid #e6eefc}
+.hero-inner h1{margin:0;font-size:28px}
+.tag{color:var(--muted);margin-top:8px}
+.cta-row{margin-top:12px}
+.cta-btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;margin-right:8px}
+.repo{color:var(--accent)}
+.hero-image .bike-card{background:var(--card);padding:14px;border-radius:8px;box-shadow:0 6px 18px rgba(11,124,255,0.06);width:220px;text-align:left}
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+.container{max-width:980px;margin:28px auto;padding:0 16px}
+.box{background:var(--card);padding:18px;border-radius:10px;margin-bottom:16px;box-shadow:0 6px 16px rgba(3,15,34,0.04)}
+.user-form{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.user-form input{flex:1;padding:10px;border:1px solid #e6eefc;border-radius:8px}
+.user-form button{padding:10px 14px;background:var(--accent);color:#fff;border-radius:8px;border:0}
+.users-list{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.user-row{display:flex;justify-content:space-between;padding:10px;border-radius:8px;border:1px solid #f0f3fb;background:#fbfdff}
+.muted{color:var(--muted);font-size:13px}
+.empty{color:var(--muted)}
+.error{color:#b91c1c;background:#fff0f0;padding:8px;border-radius:6px;margin-bottom:10px}
+.footer{padding:20px;text-align:center;color:var(--muted);font-size:13px}
+/* src/App.css */
+:root{--bg:#f6f8fb;--card:#fff;--accent:#0b7cff;--muted:#6b7280}
+*{box-sizing:border-box}
+body,html,#root{height:100%;margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:#0f1724}
+.site-root .hero{display:flex;justify-content:space-between;align-items:center;padding:36px 48px;background:linear-gradient(90deg,#fff,#f3f7ff);border-bottom:1px solid #e6eefc}
+.hero-inner h1{margin:0;font-size:28px}
+.tag{color:var(--muted);margin-top:8px}
+.cta-row{margin-top:12px}
+.cta-btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;margin-right:8px}
+.repo{color:var(--accent)}
+.hero-image .bike-card{background:var(--card);padding:14px;border-radius:8px;box-shadow:0 6px 18px rgba(11,124,255,0.06);width:220px;text-align:left}
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+.container{max-width:980px;margin:28px auto;padding:0 16px}
+.box{background:var(--card);padding:18px;border-radius:10px;margin-bottom:16px;box-shadow:0 6px 16px rgba(3,15,34,0.04)}
+.user-form{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.user-form input{flex:1;padding:10px;border:1px solid #e6eefc;border-radius:8px}
+.user-form button{padding:10px 14px;background:var(--accent);color:#fff;border-radius:8px;border:0}
+.users-list{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.user-row{display:flex;justify-content:space-between;padding:10px;border-radius:8px;border:1px solid #f0f3fb;background:#fbfdff}
+.muted{color:var(--muted);font-size:13px}
+.empty{color:var(--muted)}
+.error{color:#b91c1c;background:#fff0f0;padding:8px;border-radius:6px;margin-bottom:10px}
+.footer{padding:20px;text-align:center;color:var(--muted);font-size:13px}
+/* src/App.css */
+:root{--bg:#f6f8fb;--card:#fff;--accent:#0b7cff;--muted:#6b7280}
+*{box-sizing:border-box}
+body,html,#root{height:100%;margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:#0f1724}
+.site-root .hero{display:flex;justify-content:space-between;align-items:center;padding:36px 48px;background:linear-gradient(90deg,#fff,#f3f7ff);border-bottom:1px solid #e6eefc}
+.hero-inner h1{margin:0;font-size:28px}
+.tag{color:var(--muted);margin-top:8px}
+.cta-row{margin-top:12px}
+.cta-btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;margin-right:8px}
+.repo{color:var(--accent)}
+.hero-image .bike-card{background:var(--card);padding:14px;border-radius:8px;box-shadow:0 6px 18px rgba(11,124,255,0.06);width:220px;text-align:left}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
+.container{max-width:980px;margin:28px auto;padding:0 16px}
+.box{background:var(--card);padding:18px;border-radius:10px;margin-bottom:16px;box-shadow:0 6px 16px rgba(3,15,34,0.04)}
+.user-form{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.user-form input{flex:1;padding:10px;border:1px solid #e6eefc;border-radius:8px}
+.user-form button{padding:10px 14px;background:var(--accent);color:#fff;border-radius:8px;border:0}
+.users-list{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.user-row{display:flex;justify-content:space-between;padding:10px;border-radius:8px;border:1px solid #f0f3fb;background:#fbfdff}
+.muted{color:var(--muted);font-size:13px}
+.empty{color:var(--muted)}
+.error{color:#b91c1c;background:#fff0f0;padding:8px;border-radius:6px;margin-bottom:10px}
+.footer{padding:20px;text-align:center;color:var(--muted);font-size:13px}
+/* src/App.css */
+:root{--bg:#f6f8fb;--card:#fff;--accent:#0b7cff;--muted:#6b7280}
+*{box-sizing:border-box}
+body,html,#root{height:100%;margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:#0f1724}
+.site-root .hero{display:flex;justify-content:space-between;align-items:center;padding:36px 48px;background:linear-gradient(90deg,#fff,#f3f7ff);border-bottom:1px solid #e6eefc}
+.hero-inner h1{margin:0;font-size:28px}
+.tag{color:var(--muted);margin-top:8px}
+.cta-row{margin-top:12px}
+.cta-btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;margin-right:8px}
+.repo{color:var(--accent)}
+.hero-image .bike-card{background:var(--card);padding:14px;border-radius:8px;box-shadow:0 6px 18px rgba(11,124,255,0.06);width:220px;text-align:left}
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
+.container{max-width:980px;margin:28px auto;padding:0 16px}
+.box{background:var(--card);padding:18px;border-radius:10px;margin-bottom:16px;box-shadow:0 6px 16px rgba(3,15,34,0.04)}
+.user-form{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.user-form input{flex:1;padding:10px;border:1px solid #e6eefc;border-radius:8px}
+.user-form button{padding:10px 14px;background:var(--accent);color:#fff;border-radius:8px;border:0}
+.users-list{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.user-row{display:flex;justify-content:space-between;padding:10px;border-radius:8px;border:1px solid #f0f3fb;background:#fbfdff}
+.muted{color:var(--muted);font-size:13px}
+.empty{color:var(--muted)}
+.error{color:#b91c1c;background:#fff0f0;padding:8px;border-radius:6px;margin-bottom:10px}
+.footer{padding:20px;text-align:center;color:var(--muted);font-size:13px}
