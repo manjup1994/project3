@@ -1,10 +1,20 @@
 ﻿const express = require('express');
 const app = express();
 
-// Middleware to parse JSON requests
 app.use(express.json());
 
-// Temporary in-memory user list (for testing)
+// --- Simple CORS middleware (allows your frontend to call this API) ---
+app.use((req, res, next) => {
+  // Allow requests from any origin (for now). If you want to restrict, replace '*' with your frontend URL.
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  // Allow preflight methods
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
+  if (req.method === 'OPTIONS') return res.sendStatus(200);
+  next();
+});
+// --------------------------------------------------------------------
+
 let users = [];
 
 // Root route
@@ -12,24 +22,22 @@ app.get('/', (req, res) => {
   res.send('Backend is running successfully on Render!');
 });
 
-// GET all users
 app.get('/users', (req, res) => {
   res.json(users);
 });
 
-// POST create user
 app.post('/users', (req, res) => {
   const { username, email } = req.body;
   if (!username || !email) {
-    return res.status(400).json({ error: 'Username and email are required' });
+    return res.status(400).json({ detail: 'Username and email are required' });
   }
-  const newUser = { id: users.length + 1, username, email };
+  const newUser = { id: users.length + 1, username, email, created_at: new Date().toISOString() };
   users.push(newUser);
   res.status(201).json(newUser);
 });
 
-// Render provides the PORT environment variable
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`);
 });
+
