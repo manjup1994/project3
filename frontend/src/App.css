@@ -90,3 +90,15 @@ body,html,#root{height:100%;margin:0;font-family:Inter,system-ui,Arial,sans-seri
 .empty{color:var(--muted)}
 .error{color:#b91c1c;background:#fff0f0;padding:8px;border-radius:6px;margin-bottom:10px}
 .footer{padding:20px;text-align:center;color:var(--muted);font-size:13px}
+/* small logo in header */
+.site-logo {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  margin-right: 12px;
+  vertical-align: middle;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(11,124,255,0.08);
+}
+.hero-inner { display:flex; align-items:center; gap:12px; }
+.hero-inner h1 { margin:0; font-size:28px; }

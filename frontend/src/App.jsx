@@ -45,6 +45,7 @@ export default function App() {
     <div className="site-root">
       <header className="hero">
         <div className="hero-inner">
+    <img src="/bike-logo.png" alt="Bike Share logo" className="site-logo" />
           <h1>Bike Share — Campus Prototype</h1>
           <p className="tag">
             Find bikes. Reserve quickly. Built with React • Node • PostgreSQL • Docker
