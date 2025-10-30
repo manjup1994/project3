@@ -1,41 +1,59 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 export default function CreateUserForm({ onCreate }) {
-  const [username, setUsername] = useState('')
-  const [email, setEmail] = useState('')
-  const [status, setStatus] = useState(null)
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [msg, setMsg] = useState(null);
 
-  const submit = async (e) => {
-    e.preventDefault()
-    setStatus('sending')
-    const resp = await onCreate({ username, email })
-    if (resp.success) {
-      setStatus('ok')
-      setUsername('')
-      setEmail('')
-    } else {
-      setStatus(`error: ${resp.message}`)
+  async function submit(e) {
+    e.preventDefault();
+    setMsg(null);
+    if (!username.trim() || !email.trim()) {
+      setMsg({ type: "error", text: "Please type a name and email." });
+      return;
     }
-    setTimeout(()=>setStatus(null), 3000)
+    setBusy(true);
+    try {
+      const result = await onCreate({ username: username.trim(), email: email.trim() });
+      if (result?.success) {
+        setMsg({ type: "success", text: "User created." });
+        setUsername("");
+        setEmail("");
+      } else {
+        setMsg({ type: "error", text: result?.message || "Create failed." });
+      }
+    } catch (err) {
+      setMsg({ type: "error", text: err.message || "Create failed." });
+    } finally {
+      setBusy(false);
+      setTimeout(() => setMsg(null), 3000);
+    }
   }
 
   return (
-    <form onSubmit={submit} style={{ display:'grid', gap:8, alignItems:'center' }}>
-      <div>
-        <label>Username</label><br/>
-        <input required value={username} onChange={e=>setUsername(e.target.value)} />
+    <form onSubmit={submit} className="create-form">
+      <input
+        placeholder="Full name"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        disabled={busy}
+        aria-label="Full name"
+      />
+      <input
+        placeholder="email@example.com"
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        disabled={busy}
+        aria-label="Email"
+      />
+      <div style={{ display: "flex", gap: 8 }}>
+        <button className="btn" type="submit" disabled={busy}>{busy ? "Creating..." : "Create user"}</button>
+        <button type="button" className="btn ghost" onClick={() => { setUsername(""); setEmail(""); }} disabled={busy}>Clear</button>
       </div>
 
-      <div>
-        <label>Email</label><br/>
-        <input required type="email" value={email} onChange={e=>setEmail(e.target.value)} />
-      </div>
-
-      <div>
-        <button type="submit">Create user</button>
-      </div>
-
-      {status && <div style={{ marginTop: 8 }}>{status}</div>}
+      {msg && <div className={`alert ${msg.type === "error" ? "error" : ""}`} style={{ marginTop: 10 }}>{msg.text}</div>}
     </form>
-  )
+  );
 }
